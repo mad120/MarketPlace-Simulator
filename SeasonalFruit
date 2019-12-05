@@ -1,0 +1,13 @@
+public class SeasonalFruit extends Fruit {
+
+
+    public SeasonalFruit(String name, double weightInKg, int pricePerkgInCents) {
+        super(name, weightInKg, pricePerkgInCents);
+    }
+
+    public int getCost() {
+        return (int)(0.85* super.getCost());
+    }
+
+
+}
