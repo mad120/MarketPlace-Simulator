@@ -1,0 +1,24 @@
+public class Jam extends MarketProduct {
+    private int numberOfJars;
+    private int pricePerJarCents;
+
+    public Jam(String name, int numberOfJars, int pricePerJarCents) {
+        super(name);
+        this.numberOfJars = numberOfJars;
+        this.pricePerJarCents = pricePerJarCents;
+    }
+
+
+
+    @Override
+    public int getCost() {
+        return numberOfJars*pricePerJarCents;
+    }
+
+    @Override
+    public boolean equals(MarketProduct obj) {
+        boolean res = ( (obj instanceof Jam) && obj.getName()==this.getName() )
+                && ( obj.getCost()==this.getCost() && (this.numberOfJars==((Jam) obj).numberOfJars) ) ;
+        return res;
+    }
+}
