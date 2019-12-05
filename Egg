@@ -1,0 +1,23 @@
+public class Egg extends MarketProduct{
+
+    private int numOfEggs;
+    private int priceDozenEggs;
+
+    public Egg(String name, int numOfEggs, int priceDozenEggs) {
+        super(name);
+        this.numOfEggs = numOfEggs;
+        this.priceDozenEggs = priceDozenEggs;
+    }
+
+    @Override
+    public int getCost() {
+        return (int)((numOfEggs*priceDozenEggs)/12);
+    }
+
+    @Override
+    public boolean equals(MarketProduct obj) {
+        boolean res = ( (obj instanceof Egg) && obj.getName()==this.getName() )
+                && ( obj.getCost()==this.getCost() && (((Egg) obj).numOfEggs==this.numOfEggs) ) ;
+        return res;
+    }
+}
