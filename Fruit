@@ -1,0 +1,22 @@
+public class Fruit extends MarketProduct {
+    private double weightInKg;
+    private int pricePerkgInCents;
+
+    public Fruit(String name, double weightInKg, int pricePerkgInCents) {
+        super(name);
+        this.weightInKg = weightInKg;
+        this.pricePerkgInCents = pricePerkgInCents;
+    }
+
+    @Override
+    public int getCost() {
+        return  (int) (pricePerkgInCents*weightInKg);
+    }
+
+    @Override
+    public boolean equals(MarketProduct obj) {
+        boolean res = ( (obj instanceof Fruit) && obj.getName()==this.getName() )
+                && ( obj.getCost()==this.getCost() && (((Fruit) obj).weightInKg==this.weightInKg) ) ;
+        return res;
+    }
+}
